@@ -1,0 +1,74 @@
+import React, { useContext, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { UseProvider } from '../../context/IdContext';
+
+import './SneakersID.scss';
+
+const SneakersID = ({ sneakers }) => {
+  const params = useParams();
+  const sneakerId = params.sneakerId - 1;
+  const [sizeValue, setSiszeValue] = useState('');
+  const handleValue = (e) => setSiszeValue(e.target.value);
+  const resume = useContext(UseProvider)
+
+  return (
+    <section className="sneakersId">
+      <aside className="detail-contain">
+        <img
+          src={sneakers[sneakerId].media.smallImageUrl}
+          alt={sneakers[sneakerId].name}
+        />
+        <div className="detail-info">
+          <div className="name-shoe">
+            <p className="brand">{sneakers[sneakerId].brand}</p>
+            <p className="shoe">{sneakers[sneakerId].shoe}</p>
+          </div>
+          {sneakers[sneakerId].retailPrice > 1 ? (
+            <p className="price">
+              prix: {sneakers[sneakerId].retailPrice}€ ou réglez en
+              <span className="price-add-1">x2</span>
+              <span className="price-add-2">x3</span>
+              <span className="price-add-3">x4</span>
+            </p>
+          ) : (
+            <p className="not-available">Produit en approvisionnement</p>
+          )}
+          <div className="size-contain">
+            {/* <h3 className="size-title">Taille : </h3> */}
+            <form className="form-size" >
+              <select
+                required
+                className="size-select"
+                value={sizeValue}
+                onChange={handleValue}
+              >
+                <option>Choisissez une taille</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">44</option>
+                <option value="44">45</option>
+                <option value="45">46</option>
+              </select>
+              <Link to="/order" >
+                <input
+                  type="submit"
+                  value="ajoutez au panier"
+                  className="submit"
+                />
+              </Link>
+            </form>
+          </div>
+          <p className="promo">
+            30% de Reduction avec le code{' '}
+            <span className="code">DEV-FRONT</span>{' '}
+          </p>
+        </div>
+      </aside>
+    </section>
+  );
+};
+
+export default SneakersID;

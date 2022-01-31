@@ -1,0 +1,147 @@
+#main {
+  min-height: 85vh;
+  .landing {
+    width: 100%;
+    margin-bottom: 30px;
+    min-height: 70vh;
+    .landing-contain {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .landing-info {
+        display: flex;
+        flex-flow: column wrap;
+        gap: 70px;
+        margin: 3%;
+        color: var(--first-color);
+        .landing-title {
+          font-size: 5.4rem;
+          font-family: var(--first-font);
+          animation: animationTitle 1s ease-in-out 300ms backwards;
+        }
+        .landing-sneakers {
+          h3 {
+            font-size: 4rem;
+            font-weight: bold;
+            font-style: italic;
+          }
+        }
+      }
+      .landing-image {
+        animation: animationShoes 1s ease-in-out 300ms backwards;
+        height: 100%;
+        .image {
+          height: 400px;
+        }
+      }
+    }
+    .button-contain {
+      display: flex;
+      justify-content: center;
+      
+      .landing-button {
+        height: 60px;
+        width: 150px;
+        background-color: var(--first-color);
+        color: #fff;
+        font-size: 1.7rem;
+        border-radius: 9px;
+        cursor: pointer;
+        position: relative;
+        // z-index: 99;
+        overflow: hidden;
+
+        &::before {
+          content: 'Découvrir';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 150px;
+          height: 100%;
+          width: 100%;
+          border-radius: 9px;
+          background-color: #fff;
+          transform: translateX(-150px);
+          transition: 500ms;
+          transform-origin: left;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        &:hover::before {
+          transform: translateX(0);
+          color: var(--first-color);
+        }
+        &:hover {
+          border-radius: 9px;
+          //   color: var(--first-font);
+        }
+      }
+    }
+    h1 {
+      font-family: var(--first-font);
+      text-align: center;
+      padding: 20px;
+    }
+  }
+  .title-bottom {
+    margin-top: 35px;
+  }
+
+  @media screen and (max-width: 940px) {
+    .landing {
+      .landing-contain {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        .landing-info {
+          gap: 0;
+          margin: 1%;
+        }
+        .landing-image {
+          height: 100%;
+          .image {
+            height: 300px;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .landing-title {
+      font-size: 3rem;
+    }
+    .image {
+      height: 250px;
+      width: 250px;
+    }
+  }
+}
+.sneakersList-contain {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 10px;
+  background: var(--first-color);
+  padding: 5%;
+}
+@keyframes animationShoes {
+  from {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes animationTitle {
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,53 @@
+#sneakerList {
+  border: 1px solid var(--first-color);
+  border-radius: 5px;
+  height: 300px;
+  width: 400px;
+  background-color: #fff;
+  &:hover {
+    transition: 300ms;
+    transform: scale(1.03);
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--first-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      height: 200px;
+      width: 350px;
+      cursor: pointer;
+    }
+
+    .shoe {
+      font-weight: bold;
+    }
+
+    .brand {
+      font-family: var(--first-font);
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .not-available {
+      color: red;
+      font-style: italic;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  #sneakerList {
+    border: red;
+    height: 200px;
+    width: 250px;
+    a {
+      img {
+        height: 100px;
+        width: 150px;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Sedgwick+Ave&display=swap');
+
+:root {
+  --first-font: 'Sedgwick Ave';
+  --second-font: 'Montserrat', sans-serif;
+  --first-color: #00171f;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  font-family: var(--second-font);
+  font-size: 1.5rem;
+}

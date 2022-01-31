@@ -1,0 +1,60 @@
+.sneakers {
+  padding: 3% 5%;
+  background-color: #f1f1f1;
+  min-height: 90vh;
+  .filter-contain {
+    display: flex;
+    flex-flow: row nowrap;
+    list-style: none;
+    padding: 15px;
+    .filter-title {
+      margin: 10px 0 10px 15px;
+      cursor: pointer;
+      padding: 5px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--first-color);
+    }
+    .filter {
+      margin: 10px 0 10px 15px;
+      cursor: pointer;
+      padding: 5px;
+      position: relative;
+      overflow: hidden;
+      &:active {
+        background-color: #fff;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: var(--first-color);
+        height: 2px;
+        width: 100%;
+      }
+      &:hover::before {
+        transform: translateX(100px);
+        transition: 700ms;
+      }
+    }
+  }
+}
+.sneaker-contain {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+  justify-content: center;
+}
+@media screen and (max-width: 500px) {
+  .sneakers-contain {
+    border: red;
+    height: 250px;
+    width: 25px;
+  }
+  .sneakers {
+    .filter-contain {
+      flex-wrap: wrap;
+    }
+  }
+}
