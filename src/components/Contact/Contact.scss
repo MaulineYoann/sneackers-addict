@@ -38,77 +38,157 @@
         background-color: #fff;
         color: var(--first-color);
         font-size: 1.5rem;
+        cursor: pointer;
+        &:hover {
+          transition: 300ms;
+          transform: scale(1.2);
+        }
       }
     }
     .resume {
-      // border: 2px dashed pink;
-      width: 45%;
+
+      width: 60%;
+      position: relative;
 
       .resume-shoes {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        border-bottom: 1px dashed var(--first-color);
-        padding-bottom: 30px;
+        border-bottom: 1px dashed #fff;
+        justify-content: space-between;
+
         img {
-          box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px #fff;
           height: 100px;
           width: 110px;
           border-radius: 10px;
           padding: 15px;
           background-color: #fff;
         }
+        .quantity-contain {
+          width: 200px;
+          display: flex;
+          justify-content: center;
+
+          button {
+            margin: 0 10px;
+            width: 30px;
+            cursor: pointer;
+          }
+          .quantity {
+            display: flex;
+
+            .value {
+              padding-left: 15px;
+            }
+          }
+        }
         .shoe {
-          padding-left: 50px;
           h3,
           h4,
           h5 {
             padding: 10px;
           }
         }
-        .price {
-          padding: 0 0 0 55px;
-        }
+        
+        
       }
       .promo {
         margin: 30px 0 0 0;
+
         .code-promo {
           height: 30px;
           width: 150px;
-          padding: 10px;
           font-size: 1.6rem;
           border-radius: 5px;
+          padding: 5px;
         }
         .promo-submit {
-          margin-top: 20px;
-          margin-left: 20px;
           height: 30px;
-          font-size: 1.5rem;
+          font-size: 1.4rem;
+          font-weight: bold;
           background-color: #fff;
           color: var(--first-color);
           padding: 5px;
           border-radius: 5px;
+          cursor: pointer;
+        }
+        .succes-code {
+          padding: 15px;
+          color: #52b788;
         }
       }
       .total {
         display: flex;
-        margin-top: 60px;
+        margin-top: 50px;
         justify-content: start;
+        width: 100%;
         gap: 15px;
         p {
           font-size: 2rem;
           .total-promo {
             color: #52b788;
           }
+          .joke {
+            font-size: 1rem;
+            padding: 0 0 0 15px;
+          }
         }
       }
     }
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
   .contain {
     .form-contain {
       flex-direction: column-reverse;
+      .resume {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 730px) {
+  .contain {
+    .form-contain {
+      .contact {
+        input {
+          width: 250px;
+        }
+      }
+      .resume {
+        .resume-shoes {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+        }
+        .shoe {
+          text-align: center;
+        }
+      }
+      .promo {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .code-promo {
+          border: 1px solid #52b788;
+          margin: 0 auto;
+          padding: 0;
+          text-align: center;
+        }
+        .promo-submit {
+          margin-left: 0;
+          margin: 30px 0 0 0;
+          border: 1px solid #52b788;
+          padding: 0;
+          margin: 0;
+          text-align: center;
+        }
+      }     
     }
   }
 }

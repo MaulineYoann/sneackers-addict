@@ -7,7 +7,11 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
   const [formName, setFormName] = useState('');
   const [formLastName, setFormLastName] = useState('');
   const [promo, setPromo] = useState('');
+  const [quantity, setQuantity] = useState(1);
   let total;
+  let succes;
+  let error;
+  let joke;
 
   const handleShow = () => setShowModal(!showModal);
   const handleName = (e) => setFormName(e.target.value);
@@ -16,6 +20,7 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
   const handlePromoSubmit = (e) => e.preventDefault();
   const handleSubmit = (e) => {
     if (formName === '' || formLastName === '') {
+      error = 'Veuillez remplir les champs';
       e.preventDefault();
     } else {
       handleShow();
@@ -29,9 +34,13 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
   if (promo === 'DEV-FRONT') {
     let reduction = (price / 100) * 30;
     total = price - reduction;
-  } else {
-  }
+    succes = 'Code Accepté';
+  } 
+  price = price * quantity
 
+  if(quantity > 5) joke = <small className='joke'>(ça commence à faire beaucoup)</small>
+  
+  
   return (
     <div className="contain" id="Form-contact">
       <h1 className="contact-title">Contacts</h1>
@@ -44,6 +53,7 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
             placeholder="prénom"
             value={formName}
             onChange={handleName}
+            maxLength="15"
             required
           />
           <input
@@ -51,14 +61,23 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
             placeholder="nom"
             value={formLastName}
             onChange={handleLastName}
+            maxLength="20"
             required
           />
           <input type="submit" value="Commander" className="submit" />
-          <small className="error"></small>
+          <small className="error">{error}</small>
         </form>
         <aside className="resume">
           <div className="resume-shoes">
             <img src={img} alt={name} />
+            <div className="quantity-contain">
+              <button onClick={() => setQuantity((prev) => prev - 1)}>-</button>
+              <p className="quantity">
+                qté
+                <span className='value'>{quantity >= 1 ? quantity : setQuantity(1)}</span>
+              </p>
+              <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
+            </div>
             <div className="shoe">
               <h3>{brand}</h3>
               <h4>{name}</h4>
@@ -74,11 +93,13 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
               className="code-promo"
             />
             <input className="promo-submit" type="submit" value="Code Promo" />
+            <p className="succes-code">{succes}</p>
           </form>
           <div className="total">
             <p>total: </p>
             <p className="total-value">
               {total ? <span className="total-promo">{total}</span> : price} €
+            {joke}
             </p>
           </div>
         </aside>

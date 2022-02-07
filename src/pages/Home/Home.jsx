@@ -23,12 +23,12 @@ const Home = ({ sneakers }) => {
             />
           </div>
         </div>
+        <h1 className="title-bottom">Découvrez nos modèles</h1>
         <div className="button-contain">
           <Link to="sneakers">
             <button className="landing-button">Découvrir</button>
           </Link>
         </div>
-        <h1 className="title-bottom">Découvrez nos modèles</h1>
       </div>
     </main>
   );

@@ -9,8 +9,8 @@ const Footer = () => {
     <h3>Sneakers Addict</h3>
     <div className="contact">
       <h5>Navigation</h5>
-      <a href="https://www.linkedin.com/in/yoann-mauline/">Linkedin</a>
-      <a href="https://github.com/MaulineYoann">Github</a>
+      <a target="_blank" href="https://www.linkedin.com/in/yoann-mauline/" rel="noopener noreferrer">Linkedin</a>
+      <a href="https://github.com/MaulineYoann" target="_blank" rel="noopener noreferrer">Github</a>
     </div>
     <div className="navigation">
       <h5>Produit</h5>

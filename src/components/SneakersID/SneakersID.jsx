@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams} from 'react-router-dom';
+import { useParams, Link} from 'react-router-dom';
 import Contact from '../Contact/Contact';
 import './SneakersID.scss';
 
@@ -35,7 +35,6 @@ const SneakersID = ({ sneakers }) => {
             <p className="not-available">Produit en approvisionnement</p>
           )}
           <div className="size-contain">
-            {/* <h3 className="size-title">Taille : </h3> */}
             <form 
             onSubmit={handleSize}
             className="form-size" 
@@ -67,8 +66,9 @@ const SneakersID = ({ sneakers }) => {
           </div>
           <p className="promo">
             30% de Reduction avec le code{' '}
-            <span className="code">DEV-FRONT</span>{' '}
+            <span className="code">DEV-FRONT</span>
           </p>
+          <Link clasname="back" to="/sneakers" className="back">choisir un autre modèle</Link>
         </div>
       </aside>
       <Contact id='Contact'

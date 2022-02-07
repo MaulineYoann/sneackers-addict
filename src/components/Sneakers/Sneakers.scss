@@ -9,11 +9,11 @@
     padding: 15px;
     .filter-title {
       margin: 10px 0 10px 15px;
-      cursor: pointer;
       padding: 5px;
       position: relative;
       overflow: hidden;
       border: 2px solid var(--first-color);
+      box-shadow: -5px 5px 5px black;
     }
     .filter {
       margin: 10px 0 10px 15px;
