@@ -30,7 +30,6 @@ const Sneakers = ({ sneakers }) => {
               </div>
             ))
         );
-      //  { filter: (state.filter = 'Puma') };
       case 'Converse':
         return (
           (state.filter = 'Converse'),
@@ -42,7 +41,6 @@ const Sneakers = ({ sneakers }) => {
               </div>
             ))
         );
-      // { filter: (state.filter = 'Converse') };
       default:
         return sneakers.map((sneaker) => (
           <div key={sneaker.id} className="sneaker-contain">

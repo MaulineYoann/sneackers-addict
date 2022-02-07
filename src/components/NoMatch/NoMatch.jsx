@@ -2,7 +2,7 @@ import React from 'react';
 
 const NoMatch = () => {
   const styles = {
-    heigth: '100vh',
+    heigth: '500px',
     width: '100vw',
     display: 'flex',
     justifyContent: 'center',
@@ -10,7 +10,7 @@ const NoMatch = () => {
   };
   return (
     <div style={styles}>
-      <p>No Match Routes</p>
+      <p>Pages not found</p>
     </div>
   );
 };

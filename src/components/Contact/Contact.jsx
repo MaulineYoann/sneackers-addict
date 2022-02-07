@@ -7,23 +7,15 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
   const [formName, setFormName] = useState('');
   const [formLastName, setFormLastName] = useState('');
   const [promo, setPromo] = useState('');
-  
+  let total;
+
   const handleShow = () => setShowModal(!showModal);
   const handleName = (e) => setFormName(e.target.value);
   const handleLastName = (e) => setFormLastName(e.target.value);
   const handlePromo = (e) => setPromo(e.target.value);
-  let total;
   const handlePromoSubmit = (e) => e.preventDefault();
-
-  if (promo === 'DEV-FRONT') {
-    let reduction = (price / 100) * 30;
-    total = price - reduction;
-  } else {
-  }
-
   const handleSubmit = (e) => {
-    if (formName  === '' || formLastName === "") {
-
+    if (formName === '' || formLastName === '') {
       e.preventDefault();
     } else {
       handleShow();
@@ -31,8 +23,17 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
     }
   };
 
+  if (price < 10) {
+    price = 300;
+  }
+  if (promo === 'DEV-FRONT') {
+    let reduction = (price / 100) * 30;
+    total = price - reduction;
+  } else {
+  }
+
   return (
-    <div className="contain">
+    <div className="contain" id="Form-contact">
       <h1 className="contact-title">Contacts</h1>
 
       <div className="form-contain">
@@ -61,6 +62,7 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
             <div className="shoe">
               <h3>{brand}</h3>
               <h4>{name}</h4>
+              <h5>taille: {sizeValue}</h5>
             </div>
             <p className="price">prix : {price} €</p>
           </div>
@@ -75,7 +77,9 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
           </form>
           <div className="total">
             <p>total: </p>
-            <p className="total-value">{total ? total : price} €</p>
+            <p className="total-value">
+              {total ? <span className="total-promo">{total}</span> : price} €
+            </p>
           </div>
         </aside>
       </div>

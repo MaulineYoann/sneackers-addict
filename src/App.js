@@ -29,18 +29,14 @@ function App() {
   return loader ? (
     <Loader />
   ) : (
-    // return (
     <>
       <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home sneakers={sneakers} />} />
           <Route path="sneakers" element={<Sneakers sneakers={sneakers} />} />
-          <Route
-            path="/sneakers/:sneakerId"
-            element={<SneakersID sneakers={sneakers} />} />
-          
-            <Route path="/contact" element={<Contact sneakers={sneakers}/>} />
+          <Route path="/sneakers/:sneakerId" element={<SneakersID sneakers={sneakers} />} />
+          {/* <Route path="/contact" element={<Contact sneakers={sneakers}/>} /> */}
           <Route path="/no-match" element={<NoMatch />} />
         </Routes>
         <Footer />

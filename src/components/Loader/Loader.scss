@@ -1,9 +1,6 @@
 .loader-contain {
   background-color: var(--first-color);
   height: 100vh;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   .loader {
     position: absolute;
     top: 40%;
@@ -22,7 +19,6 @@
 }
 
 @keyframes spin {
-    
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }

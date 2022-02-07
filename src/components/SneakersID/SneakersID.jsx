@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import Contact from '../Contact/Contact';
 import './SneakersID.scss';
 
@@ -9,6 +9,7 @@ const SneakersID = ({ sneakers }) => {
   const sneakerId = params.sneakerId - 1;
   const [sizeValue, setSiszeValue] = useState('');
   const handleValue = (e) => setSiszeValue(e.target.value);
+  const handleSize = e => e.preventDefault();
   
 
   return (
@@ -35,7 +36,10 @@ const SneakersID = ({ sneakers }) => {
           )}
           <div className="size-contain">
             {/* <h3 className="size-title">Taille : </h3> */}
-            <form className="form-size" >
+            <form 
+            onSubmit={handleSize}
+            className="form-size" 
+            >
               <select
                 required
                 className="size-select"
@@ -52,14 +56,14 @@ const SneakersID = ({ sneakers }) => {
                 <option value="44">45</option>
                 <option value="45">46</option>
               </select>
-              <a href='Contact'>
+              <a href='/#Form-contact'>
                 <input
                   type="submit"
-                  value="ajoutez au panier"
+                  value="valider la taille"
                   className="submit"
                 />
               </a>
-            </form>
+            </form> 
           </div>
           <p className="promo">
             30% de Reduction avec le code{' '}
