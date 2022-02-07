@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { MyContext } from '../../context/IdContext';
+import React from 'react';
+
 
 const Order = () => {
-    const resume = useContext(MyContext)
+    
   return <div>
-      <h2>Panier {resume.resume}</h2>
+      <h2>Panier</h2>
   </div>;
 };
 

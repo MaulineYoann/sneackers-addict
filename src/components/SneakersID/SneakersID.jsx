@@ -1,18 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { UseProvider } from '../../context/IdContext';
-
+import Contact from '../Contact/Contact';
 import './SneakersID.scss';
 
 const SneakersID = ({ sneakers }) => {
+
   const params = useParams();
   const sneakerId = params.sneakerId - 1;
   const [sizeValue, setSiszeValue] = useState('');
   const handleValue = (e) => setSiszeValue(e.target.value);
-  const resume = useContext(UseProvider)
+  
 
   return (
-    <section className="sneakersId">
+    <section className="sneakersId" >
       <aside className="detail-contain">
         <img
           src={sneakers[sneakerId].media.smallImageUrl}
@@ -52,13 +52,13 @@ const SneakersID = ({ sneakers }) => {
                 <option value="44">45</option>
                 <option value="45">46</option>
               </select>
-              <Link to="/order" >
+              <a href='Contact'>
                 <input
                   type="submit"
                   value="ajoutez au panier"
                   className="submit"
                 />
-              </Link>
+              </a>
             </form>
           </div>
           <p className="promo">
@@ -67,6 +67,14 @@ const SneakersID = ({ sneakers }) => {
           </p>
         </div>
       </aside>
+      <Contact id='Contact'
+      sneakers={sneakers}
+      sizeValue={sizeValue} 
+      img={sneakers[sneakerId].media.smallImageUrl}
+      name={sneakers[sneakerId].name}
+      brand={sneakers[sneakerId].brand}
+      price={sneakers[sneakerId].retailPrice}
+      />
     </section>
   );
 };
