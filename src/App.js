@@ -9,7 +9,7 @@ import NoMatch from './components/NoMatch/NoMatch';
 import Footer from './pages/Footer/Footer';
 import Sneakers from './components/Sneakers/Sneakers';
 import './App.scss';
-import Order from './components/Order/Order';
+import Contact from './components/Contact/Contact';
 
 function App() {
   
@@ -23,7 +23,7 @@ function App() {
     .then((data) => setSneakers(data));
     setLoader(false);
   };
-  useEffect(() => getSneakersRequest(), []);
+  useEffect(() => getSneakersRequest(), [sneakers]);
   
 
   return loader ? (
@@ -35,11 +35,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home sneakers={sneakers} />} />
           <Route path="sneakers" element={<Sneakers sneakers={sneakers} />} />
-          <Route
-            path="/sneakers/:sneakerId"
-            element={<SneakersID sneakers={sneakers} />} />
-          
-            <Route path="/order" element={<Order />} />
+          <Route path="/sneakers/:sneakerId" element={<SneakersID sneakers={sneakers} />} />
+          {/* <Route path="/contact" element={<Contact sneakers={sneakers}/>} /> */}
           <Route path="/no-match" element={<NoMatch />} />
         </Routes>
         <Footer />
