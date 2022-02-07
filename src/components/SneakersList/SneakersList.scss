@@ -15,20 +15,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    justify-content: center;
+    
     img {
       height: 200px;
       width: 350px;
       cursor: pointer;
     }
-
     .shoe {
       font-weight: bold;
     }
 
     .brand {
       font-family: var(--first-font);
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: bold;
     }
 
@@ -38,10 +38,10 @@
     }
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   #sneakerList {
-    border: red;
-    height: 200px;
+
+    height: 210px;
     width: 250px;
     a {
       img {

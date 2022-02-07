@@ -1,7 +1,8 @@
 header {
+  padding: 15px;
   background-color: #00171f;
   color: #fff;
-  height: 11vh;
+  height: 15vh;
   display: flex;
   align-items: center;
   padding: 0 8%;
@@ -70,12 +71,7 @@ header {
     }
   }
   .desktop-nav {
-    // position: absolute;
-    // top: 11vh;
-    // right: -600px;
-    // transition: 500ms;
     display: none;
-    // transform: translateX(600px);
   }
   .mobile-nav{
     transition: 500ms;
@@ -87,16 +83,14 @@ header {
     transform: translateX(-600px);
     background-color: var(--first-color);
     z-index: 1;
-    // transform: scale(1);
     .nav-contain {
       height: 300px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-around;
       a {
         color: #fff;
-  
+        margin-top: 50px;
       }
     }
   }
