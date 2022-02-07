@@ -27,7 +27,6 @@ const Navbar = () => {
       ? 'mobile-nav' : 'desktop-nav'} >
         <div className="nav-contain">
       <Link to="/" onClick={handleNav}>Acceuil</Link>
-        <Link to="/no-match" onClick={handleNav}>Enfant</Link>
         <Link to="/sneakers" onClick={handleNav}> Sneakers</Link>
         </div>
       </nav>
