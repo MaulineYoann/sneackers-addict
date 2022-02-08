@@ -6,48 +6,41 @@ import Navbar from './pages/Navbar/Navbar';
 import SneakersID from './components/SneakersID/SneakersID';
 import NoMatch from './components/NoMatch/NoMatch';
 import Footer from './pages/Footer/Footer';
-import Loader from './components/Loader/Loader'
+import Loader from './components/Loader/Loader';
 import Sneakers from './components/Sneakers/Sneakers';
 import './App.scss';
 
 function App() {
-  
-  const API = 'https://a.nacapi.com/sneakers91';
   const [sneakers, setSneakers] = useState([]);
   const [loader, setLoader] = useState(true);
 
-  // useEffect(() => {
-  //   axios
-  //   .get(API)
-  //   .then((res) => res.data)
-  //   .then((data) => setSneakers(data))
-  //   console.log(sneakers);
-  // },[])
-
   const getSneakersRequest = async () => {
-   await axios
-    .get(API)
-    .then((res) => res.data)
-    .then((data) => setSneakers(data));
+    await axios
+      .get('https://a.nacapi.com/sneakers91')
+      .then((res) => res.data)
+      .then((data) => setSneakers(data));
     setLoader(false);
   };
-  useEffect(() => getSneakersRequest(), [sneakers]);
-  
 
-  return loader ? (
-    <Loader />
-  ) : (
+  useEffect(() => getSneakersRequest(), []);
 
-    // return (
+  return (
     <>
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home sneakers={sneakers} />} />
-          <Route path="sneakers" element={<Sneakers sneakers={sneakers} />} />
-          <Route path="/sneakers/:sneakerId" element={<SneakersID sneakers={sneakers} />} />
-          <Route path="/no-match" element={<NoMatch />} />
-        </Routes>
+        {loader ? (
+          <Loader />
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home sneakers={sneakers} />} />
+            <Route path="sneakers" element={<Sneakers sneakers={sneakers} />} />
+            <Route
+              path="/sneakers/:sneakerId"
+              element={<SneakersID sneakers={sneakers} />}
+            />
+            <Route path="/no-match" element={<NoMatch />} />
+          </Routes>
+        )}
         <Footer />
       </BrowserRouter>
     </>

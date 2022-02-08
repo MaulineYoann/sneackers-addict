@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './Home.scss';
 
 const Home = ({ sneakers }) => {
+
+
   return (
     <main id="main">
       <div className="landing">
