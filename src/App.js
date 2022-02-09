@@ -6,7 +6,6 @@ import Navbar from './pages/Navbar/Navbar';
 import SneakersID from './components/SneakersID/SneakersID';
 import NoMatch from './components/NoMatch/NoMatch';
 import Footer from './pages/Footer/Footer';
-import Loader from './components/Loader/Loader';
 import Sneakers from './components/Sneakers/Sneakers';
 import './App.scss';
 
@@ -22,25 +21,24 @@ function App() {
     setLoader(false);
   };
 
-  useEffect(() => getSneakersRequest(), []);
 
-  return (
+  useEffect(() => getSneakersRequest(), [])
+
+
+  
+ return (
     <>
       <BrowserRouter>
         <Navbar />
-        {loader ? (
-          <Loader />
-        ) : (
           <Routes>
-            <Route path="/" element={<Home sneakers={sneakers} />} />
-            <Route path="sneakers" element={<Sneakers sneakers={sneakers} />} />
+             <Route path="/" element={<Home />} />    
+            <Route path="sneakers" element={<Sneakers sneakers={sneakers} loader={loader}/>} />
             <Route
               path="/sneakers/:sneakerId"
               element={<SneakersID sneakers={sneakers} />}
             />
             <Route path="/no-match" element={<NoMatch />} />
-          </Routes>
-        )}
+          </Routes>  
         <Footer />
       </BrowserRouter>
     </>

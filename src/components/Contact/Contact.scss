@@ -44,6 +44,10 @@
           transform: scale(1.2);
         }
       }
+      .error {
+        color: red;
+        font-size: 1rem;      
+      }
     }
     .resume {
 
@@ -69,6 +73,9 @@
           width: 200px;
           display: flex;
           justify-content: center;
+          .math {
+            font-size: 2rem;
+          }
 
           button {
             margin: 0 10px;
@@ -80,6 +87,7 @@
 
             .value {
               padding-left: 15px;
+            
             }
           }
         }
