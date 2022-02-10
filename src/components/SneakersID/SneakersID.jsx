@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useParams, Link} from 'react-router-dom';
 import Contact from '../Contact/Contact';
+import { sneakers } from '../../Api/api';
 import './SneakersID.scss';
 
-const SneakersID = ({ sneakers }) => {
+const SneakersID = () => {
 
   const params = useParams();
   const sneakerId = params.sneakerId - 1;

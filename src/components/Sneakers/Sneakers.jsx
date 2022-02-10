@@ -1,10 +1,10 @@
 /* eslint-disable no-cond-assign */
+import { sneakers } from '../../Api/api';
 import React, { useReducer } from 'react';
 import './Sneakers.scss';
-import Loader from '../Loader/Loader';
 import SneakersList from '../SneakersList/SneakersList';
 
-const Sneakers = ({ sneakers, loader }) => {
+const Sneakers = () => {
   const initialeState = { filter: 'all' };
 
   const reducer = (state, action) => {
@@ -70,10 +70,7 @@ const Sneakers = ({ sneakers, loader }) => {
           Converse
         </li>
       </ul>
-      {loader ? (
-        <Loader />
-      ) : (
-
+     
       <div className="contain-sneakers">
         <div className="sneaker-contain">
           {state.filter !== 'all'
@@ -85,7 +82,7 @@ const Sneakers = ({ sneakers, loader }) => {
               ))}
         </div>
       </div>
-      )}
+   
     </section>
   );
 };

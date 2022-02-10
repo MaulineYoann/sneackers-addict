@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
 import Home from './pages/Home/Home';
 import Navbar from './pages/Navbar/Navbar';
 import SneakersID from './components/SneakersID/SneakersID';
@@ -10,35 +9,16 @@ import Sneakers from './components/Sneakers/Sneakers';
 import './App.scss';
 
 function App() {
-  const [sneakers, setSneakers] = useState([]);
-  const [loader, setLoader] = useState(true);
-
-  const getSneakersRequest = async () => {
-    await axios
-      .get('https://a.nacapi.com/sneakers91')
-      .then((res) => res.data)
-      .then((data) => setSneakers(data));
-    setLoader(false);
-  };
-
-
-  useEffect(() => getSneakersRequest(), [])
-
-
-  
- return (
+  return (
     <>
       <BrowserRouter>
         <Navbar />
-          <Routes>
-             <Route path="/" element={<Home />} />    
-            <Route path="sneakers" element={<Sneakers sneakers={sneakers} loader={loader}/>} />
-            <Route
-              path="/sneakers/:sneakerId"
-              element={<SneakersID sneakers={sneakers} />}
-            />
-            <Route path="/no-match" element={<NoMatch />} />
-          </Routes>  
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="sneakers" element={<Sneakers />} />
+          <Route path="/sneakers/:sneakerId" element={<SneakersID />} />
+          <Route path="/no-match" element={<NoMatch />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
     </>
