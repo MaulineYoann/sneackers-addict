@@ -56,13 +56,13 @@ const SneakersID = () => {
                 <option value="44">45</option>
                 <option value="45">46</option>
               </select>
-              <a href='/#Form-contact'>
+              {/* <a href='/#Form-contact'>
                 <input
                   type="submit"
                   value="Choisir une taille"
                   className="submit"
                 />
-              </a>
+              </a> */}
             </form> 
           </div>
           <p className="promo">
