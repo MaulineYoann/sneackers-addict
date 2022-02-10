@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useParams, Link} from 'react-router-dom';
 import Contact from '../Contact/Contact';
+import { sneakers } from '../../Api/api';
 import './SneakersID.scss';
 
-const SneakersID = ({ sneakers }) => {
+const SneakersID = () => {
 
   const params = useParams();
   const sneakerId = params.sneakerId - 1;
@@ -45,7 +46,7 @@ const SneakersID = ({ sneakers }) => {
                 value={sizeValue}
                 onChange={handleValue}
               >
-                <option>Choisissez une taille</option>
+                <option>Selctionner une taille</option>
                 <option value="38">38</option>
                 <option value="39">39</option>
                 <option value="40">40</option>
@@ -58,7 +59,7 @@ const SneakersID = ({ sneakers }) => {
               <a href='/#Form-contact'>
                 <input
                   type="submit"
-                  value="valider la taille"
+                  value="Choisir une taille"
                   className="submit"
                 />
               </a>

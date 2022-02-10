@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Modal from '../Modal/Modal';
 import './Contact.scss';
 
-const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
+const Contact = ({ sizeValue, img, name, brand, price}) => {
   const [showModal, setShowModal] = useState(false);
   const [formName, setFormName] = useState('');
   const [formLastName, setFormLastName] = useState('');
   const [promo, setPromo] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [errorMessage, setErrorMessage] = useState("");
+  const inputEl = useRef(null);
   let total;
   let succes;
-  let error;
   let joke;
 
   const handleShow = () => setShowModal(!showModal);
@@ -18,19 +19,27 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
   const handleLastName = (e) => setFormLastName(e.target.value);
   const handlePromo = (e) => setPromo(e.target.value);
   const handlePromoSubmit = (e) => e.preventDefault();
+  const handleRef = () => inputEl.current.focus();
+
   const handleSubmit = (e) => {
     if (formName === '' || formLastName === '') {
-      error = 'Veuillez remplir les champs';
       e.preventDefault();
+      setErrorMessage("Veuillez remplir les champs")
+      handleRef()
+    }  else if (sizeValue === '') {
+      e.preventDefault();
+      setErrorMessage(`veuillez selectionner une taille de chaussure`)
     } else {
-      handleShow();
       e.preventDefault();
+      handleShow();
     }
   };
+
 
   if (price < 10) {
     price = 300;
   }
+
   if (promo === 'DEV-FRONT') {
     let reduction = (price / 100) * 30;
     total = price - reduction;
@@ -39,6 +48,8 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
   price = price * quantity
 
   if(quantity > 5) joke = <small className='joke'>(ça commence à faire beaucoup)</small>
+
+  
   
   
   return (
@@ -54,7 +65,7 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
             value={formName}
             onChange={handleName}
             maxLength="15"
-            required
+            // required
           />
           <input
             type="text"
@@ -62,21 +73,23 @@ const Contact = ({ sizeValue, img, name, brand, price, inputEl }) => {
             value={formLastName}
             onChange={handleLastName}
             maxLength="20"
-            required
+            // required
           />
           <input type="submit" value="Commander" className="submit" />
-          <small className="error">{error}</small>
+          <small className="error">{errorMessage}</small>
         </form>
         <aside className="resume">
           <div className="resume-shoes">
             <img src={img} alt={name} />
             <div className="quantity-contain">
-              <button onClick={() => setQuantity((prev) => prev - 1)}>-</button>
+              <button className='math'
+              onClick={() => setQuantity((prev) => prev - 1)}
+              >-</button>
               <p className="quantity">
-                qté
-                <span className='value'>{quantity >= 1 ? quantity : setQuantity(1)}</span>
+                qté <span 
+                className='value'>{quantity >= 1 ? quantity : setQuantity(1)}</span>
               </p>
-              <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
+              <button  className='math' onClick={() => setQuantity((prev) => prev + 1)}>+</button>
             </div>
             <div className="shoe">
               <h3>{brand}</h3>

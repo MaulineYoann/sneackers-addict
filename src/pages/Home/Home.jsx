@@ -10,18 +10,18 @@ const Home = ({ sneakers }) => {
       <div className="landing">
         <div className="landing-contain">
           <div className="landing-info">
-            <h1 className="landing-title">Sneackers Addict</h1>
+            <h1 className="landing-title">Sneakers Addict</h1>
             <div className="landing-sneakers">
               <p>(Nouveautée)</p>
-              <h3>{sneakers[4].brand}</h3>
-              <h3>{sneakers[4].name}</h3>
+              <h3>Jordan</h3>
+              <h3>Childhood</h3>
             </div>
           </div>
           <div className="landing-image">
             <img
               className="image"
-              src={sneakers[4].media.smallImageUrl}
-              alt={sneakers[4].brand}
+              src="https://images.stockx.com/images/Air-Jordan-Why-Not-Zer05-Childhood.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1641400959"
+              alt="Jordan"
             />
           </div>
         </div>
